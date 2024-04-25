@@ -25,7 +25,7 @@ const Login = () => {
     >
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
-          Please <span className="text-[#ff4a52]">Login</span> Here
+          Please <span className="text-[#1ec6b6]">Login</span> Here
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body py-5">
           <div className="form-control">
@@ -35,7 +35,7 @@ const Login = () => {
             <input
               type="email"
               placeholder="email"
-              className="input input-bordered focus:border-[#ff4a52] focus:outline-none"
+              className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
               {...register("email", {
                 required: "email is required",
                 pattern: {
@@ -58,7 +58,7 @@ const Login = () => {
               <input
                 type={`${showPassword ? "text" : "password"}`}
                 placeholder="password"
-                className="input input-bordered w-full focus:border-[#ff4a52] focus:outline-none"
+                className="input input-bordered w-full focus:border-[#1ec6b6] focus:outline-none"
                 {...register("password", {
                   required: "password is required",
                   minLength: {
@@ -93,8 +93,8 @@ const Login = () => {
             )}
           </div>
           <div className="form-control mt-5">
-            <button className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-[#1ec6b6] text-white inline-block border-[1px] border-white">
-              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#ff4a52] group-hover:h-full opacity-90"></span>
+            <button className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[1px] border-[#1ec6b6]">
+              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#1ec6b6] group-hover:h-full opacity-90"></span>
               <span className="relative group-hover:text-white font-bold">
                 Login
               </span>
@@ -104,27 +104,27 @@ const Login = () => {
 
         <p className="text-center text-md py-3">
           Don’t have an account?{" "}
-          <span className="text-[#ff4a52] underline">
+          <span className="text-[#1ec6b6] underline">
             <Link to="/register">Create an account</Link>
           </span>
         </p>
-        <div className="h-[1px] border-[1px] border-solid border-[#ff4a52] w-3/4 mx-auto mt-10  "></div>
+        <div className="h-[1px] border-[1px] border-solid border-[#1ec6b6] w-3/4 mx-auto mt-10  "></div>
         <div className=" flex flex-col lg:w-1/2 mx-auto mt-5 mb-5">
           <button
             // onClick={() => handleLogin(handleGoogleLogin)}
-            className="btn border-[#ff4a52] text-[#ff4a52]"
+            className="btn border-[#1ec6b6] hover:bg-[#1ec6b6] hover:text-white text-[#1ec6b6]"
           >
             <FcGoogle size={35} />
             Login with Google
           </button>
           <div className="flex justify-center items-center w-full">
-            <div className="border-[1px] h-[1px] w-full border-[#ff4a52]"></div>
+            <div className="border-[1px] h-[1px] w-full border-[#1ec6b6]"></div>
             <div className="px-1">or</div>
-            <div className="border-[1px] h-[1px] w-full border-[#ff4a52]"></div>
+            <div className="border-[1px] h-[1px] w-full border-[#1ec6b6]"></div>
           </div>
           <button
             // onClick={() => handleLogin(handleGithubLogin)}
-            className="btn border-[#ff4a52] btn-outline text-[#ff4a52]"
+            className="btn border-[#1ec6b6] hover:bg-[#1ec6b6] hover:text-white text-[#1ec6b6]"
           >
             <IoLogoGithub size={35} />
             Login with Github
