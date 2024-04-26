@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 
@@ -11,7 +11,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { handleGoogleLogin, handleGithubLogin, loginUser } = useAuth();
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSocialLogin = (socialLogin) => {
     socialLogin()
@@ -19,7 +20,7 @@ const Login = () => {
         const user = result.user;
         if (user) {
           toast.success("user login successfully done");
-          //   location?.state ? navigate(`${location.state}`) : navigate("/");
+          location?.state ? navigate(`${location.state}`) : navigate("/");
         }
       })
       .catch((error) => {
@@ -40,6 +41,7 @@ const Login = () => {
         const user = result.user;
         if (user) {
           toast.success("user logged in successfully");
+          location?.state ? navigate(`${location.state}`) : navigate("/");
         }
       })
       .catch((error) => {
