@@ -9,7 +9,7 @@ import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { handleGoogleLogin, handleGithubLogin } = useAuth();
+  const { handleGoogleLogin, handleGithubLogin, loginUser } = useAuth();
 
   //   const navigate = useNavigate();
 
@@ -34,7 +34,19 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { password, email } = data;
-    console.log(password, email);
+    // console.log(password, email);
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        if (user) {
+          toast.success("user logged in successfully");
+        }
+      })
+      .catch((error) => {
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          toast.error("sorry you provide invalid credentials!");
+        }
+      });
   };
   return (
     <div

@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const { createUser, updateUser, logOut } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -14,7 +18,30 @@ const Register = () => {
 
   const onSubmit = (data) => {
     const { email, name, password, photo } = data;
-    console.log(email, name, password, photo);
+    // console.log(email, name, password, photo);
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setError(" ");
+        if (user) {
+          updateUser(name, photo).then(() => {
+            Swal.fire({
+              title: "Good job!",
+              text: "User Create Successfully. Login Now!",
+              icon: "success",
+            });
+            logOut()
+              .then(() => {})
+              .catch((error) => {
+                console.log(error?.message);
+              });
+            navigate("/login");
+          });
+        }
+      })
+      .catch((error) => {
+        setError(error?.message);
+      });
   };
   return (
     <div
