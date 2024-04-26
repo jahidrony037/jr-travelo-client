@@ -1,9 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../public/logo.svg";
 import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+  const handleUserLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success(
+          `${user?.providerData[0]?.displayName} Logged out Successfully`
+        );
+      })
+      .catch((error) => {
+        toast.error(error?.message);
+      });
+  };
   const navLinks = (
     <>
       <li>
@@ -130,19 +142,19 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar"
+                className="btn border-[1px] border-[#1ec6b6] hover:bg-[#1ec6b6]  btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    title="user-image"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    title={`${user?.providerData[0]?.displayName}`}
+                    src={`${user?.providerData[0]?.photoURL || "not found"}`}
                   />
                 </div>
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 hidden"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
               >
                 <li>
                   <Link to="" className="justify-between">
@@ -152,7 +164,12 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <button className="btn btn-success ">Logout</button>
+                  <button
+                    onClick={handleUserLogOut}
+                    className="btn hover:bg-[#1ec6b6] border-[1px] border-[#1ec6b6] bg-purple-50 hover:text-white text-[#1ec6b6]"
+                  >
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>
