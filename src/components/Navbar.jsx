@@ -71,11 +71,11 @@ const Navbar = () => {
           >
             <img
               src={logo}
-              className="md:w-12 w-10 md:h-12 h-10 fill-[#ff4a52]"
+              className="md:w-12 w-10 md:h-12 h-10 fill-[#1ec6b6]"
               alt="logo"
             />
             <p className="md:text-lg text-sm">
-              <span className="block text-left text-[#ff4a52] font-bold md:text-lg">
+              <span className="block text-left text-[#1ec6b6] font-bold md:text-lg">
                 JR
               </span>{" "}
               TRAVELO
