@@ -26,7 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addTouristSpot",
-        element: <AddTouristSpot />,
+        element: (
+          <ProtectedRoute>
+            <AddTouristSpot />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/myList",

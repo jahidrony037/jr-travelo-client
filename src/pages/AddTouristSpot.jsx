@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const AddTouristSpot = () => {
+  const { user } = useAuth() || {};
   const [error, setError] = useState("");
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    setError("");
     const {
       email,
       user_name,
@@ -52,16 +56,29 @@ const AddTouristSpot = () => {
     };
     // console.log(touristSpot);
 
+    if (user?.providerData[0]?.email !== email) {
+      return setError(`please provide your correct email`);
+    }
+
     const postData = async () => {
       const res = await fetch(`http://localhost:5000/addTouristSpot`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-type": "application/json",
         },
         body: JSON.stringify(touristSpot),
       });
-      const result = res.json();
-      console.log(result);
+      const result = await res.json();
+      //   console.log(result);
+      if (result.insertedId) {
+        setError("");
+        Swal.fire({
+          title: `Well Done ${user?.providerData[0]?.displayName}`,
+          text: "Your Tourist Spot Added SuccessFully!",
+          icon: "success",
+        });
+        reset();
+      }
     };
     postData();
   };
@@ -281,7 +298,9 @@ const AddTouristSpot = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Enter Email"
+                defaultValue={user?.providerData[0]?.email}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("email", {
                   required: "email is required",
@@ -296,6 +315,7 @@ const AddTouristSpot = () => {
                   {errors.email.message}
                 </span>
               )}
+              {error && <span className="text-red-600 font-bold">{error}</span>}
             </div>
 
             <div className="form-control">
@@ -305,6 +325,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="Enter Your Name"
+                defaultValue={user?.providerData[0]?.displayName}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("user_name", {
                   required: "user_name is required",
@@ -371,7 +392,7 @@ const AddTouristSpot = () => {
             </button>
           </div>
         </form>
-        {error && <span className="text-red-600 font-bold">{error}</span>}
+        {/* {error ? toast.error(error, { position: "top-center" }) : ""} */}
       </div>
     </div>
   );
