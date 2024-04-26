@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../public/logo.svg";
@@ -5,6 +6,7 @@ import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [hidden, setHidden] = useState(true);
   const handleUserLogOut = () => {
     logOut()
       .then(() => {
@@ -16,6 +18,7 @@ const Navbar = () => {
         toast.error(error?.message);
       });
   };
+
   const navLinks = (
     <>
       <li>
@@ -149,7 +152,11 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <div className="dropdown dropdown-end">
+            <div
+              className="dropdown dropdown-end"
+              onMouseEnter={() => setHidden(true)}
+              onMouseLeave={() => setHidden(false)}
+            >
               <div
                 tabIndex={0}
                 role="button"
@@ -163,26 +170,28 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
-              >
-                <li>
-                  <Link to="" className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </Link>
-                </li>
+              {hidden && (
+                <ul
+                  tabIndex={0}
+                  className="z-[1] flex flex-col  p-2 shadow bg-base-100 rounded-box absolute right-0 space-y-5"
+                >
+                  <li className="w-40">
+                    <Link to="" className="flex justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </Link>
+                  </li>
 
-                <li>
-                  <button
-                    onClick={handleUserLogOut}
-                    className="btn hover:bg-[#1ec6b6] border-[1px] border-[#1ec6b6] bg-purple-50 hover:text-white text-[#1ec6b6]"
-                  >
-                    Logout
-                  </button>
-                </li>
-              </ul>
+                  <li className="w-40">
+                    <button
+                      onClick={handleUserLogOut}
+                      className="btn hover:bg-[#1ec6b6] border-[1px] border-[#1ec6b6] bg-purple-50 hover:text-white text-[#1ec6b6] w-full "
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              )}
             </div>
           )}
         </div>
