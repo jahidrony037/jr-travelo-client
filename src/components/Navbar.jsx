@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../public/logo.svg";
 import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 const Navbar = () => {
-  const { user, logOut } = useAuth();
-  const [hidden, setHidden] = useState(true);
+  const { user, logOut, show, setShow } = useAuth();
   const handleUserLogOut = () => {
     logOut()
       .then(() => {
@@ -154,8 +152,8 @@ const Navbar = () => {
           ) : (
             <div
               className="dropdown dropdown-end"
-              onMouseEnter={() => setHidden(true)}
-              onMouseLeave={() => setHidden(false)}
+              onMouseEnter={() => setShow(!show)}
+              onMouseLeave={() => setShow(!show)}
             >
               <div
                 tabIndex={0}
@@ -170,7 +168,7 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              {hidden && (
+              {!show ? null : (
                 <ul
                   tabIndex={0}
                   className="z-[1] flex flex-col  p-2 shadow bg-base-100 rounded-box absolute right-0 space-y-5"

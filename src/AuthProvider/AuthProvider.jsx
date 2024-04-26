@@ -15,6 +15,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [show, setShow] = useState(false);
 
   const createUser = (email, password) => {
     setIsLoading(true);
@@ -46,6 +47,7 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     setIsLoading(true);
+    setShow(false);
     return signOut(auth);
   };
 
@@ -72,6 +74,8 @@ const AuthProvider = ({ children }) => {
     loginUser,
     updateUser,
     logOut,
+    setShow,
+    show,
   };
   return (
     <AuthContext.Provider value={allInfo}>{children}</AuthContext.Provider>
