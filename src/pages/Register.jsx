@@ -1,31 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
-import { IoLogoGithub } from "react-icons/io";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import useAuth from "../hooks/useAuth";
 
-const Login = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { handleGoogleLogin, handleGithubLogin } = useAuth();
-
-  //   const navigate = useNavigate();
-
-  const handleSocialLogin = (socialLogin) => {
-    socialLogin()
-      .then((result) => {
-        const user = result.user;
-        if (user) {
-          toast.success("user login successfully done");
-          //   location?.state ? navigate(`${location.state}`) : navigate("/");
-        }
-      })
-      .catch((error) => {
-        toast.error(error?.message);
-      });
-  };
+  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -33,20 +13,55 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const { password, email } = data;
-    console.log(password, email);
+    const { email, name, password, photo } = data;
+    console.log(email, name, password, photo);
   };
   return (
     <div
       data-aos="zoom-in"
       data-aos-duration="1000"
-      className="hero flex flex-col justify-center items-center py-10 min-h-[calc(100vh-291px)]"
+      className="hero flex flex-col justify-center items-center py-10  min-h-[calc(100vh-291px)]"
     >
+      {/* <Helmet>
+        <title>register</title>
+      </Helmet> */}
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
-          Please <span className="text-[#1ec6b6]">Login</span> Here
+          Please <span className="text-[#1ec6b6]">Register</span> Here
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body py-5">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-md">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="name"
+              className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
+              {...register("name", {
+                required: "name is required",
+                minLength: {
+                  value: 3,
+                  message: "name should be at least 3 character",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "name should be 20 character maximum",
+                },
+                pattern: {
+                  value: /^(?=.*[a-zA-Z]).+$/,
+                  message: "name has one Upper case or one Lower case letter",
+                },
+              })}
+            />
+
+            {errors?.name && (
+              <span className="text-red-600 font-semibold">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+
           <div className="form-control">
             <label className="label">
               <span className="label-text text-md">Email</span>
@@ -66,6 +81,24 @@ const Login = () => {
             {errors?.email && (
               <span className="text-red-600 font-semibold">
                 {errors.email.message}
+              </span>
+            )}
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-md">Photo URL</span>
+            </label>
+            <input
+              type="text"
+              placeholder="photo URL"
+              className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
+              {...register("photo", {
+                required: "photo url is required",
+              })}
+            />
+            {errors?.photo && (
+              <span className="text-red-600 font-semibold">
+                {errors.photo.message}
               </span>
             )}
           </div>
@@ -94,7 +127,7 @@ const Login = () => {
               {!showPassword ? (
                 <LuEye
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 cursor-pointer border-white"
+                  className="absolute right-3 top-3 cursor-pointer"
                   size={30}
                 />
               ) : (
@@ -115,43 +148,21 @@ const Login = () => {
             <button className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[1px] border-[#1ec6b6]">
               <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#1ec6b6] group-hover:h-full opacity-90"></span>
               <span className="relative group-hover:text-white font-bold">
-                Login
+                Register
               </span>
             </button>
           </div>
         </form>
-
+        {error && <span className="text-red-600 font-bold">{error}</span>}
         <p className="text-center text-md py-3">
-          Don’t have an account?{" "}
+          Already have an account?{" "}
           <span className="text-[#1ec6b6] underline">
-            <Link to="/register">Create an account</Link>
+            <Link to="/login">Please Login</Link>
           </span>
         </p>
-        <div className="h-[1px] border-[1px] border-solid border-[#1ec6b6] w-3/4 mx-auto mt-10  "></div>
-        <div className=" flex flex-col lg:w-1/2 mx-auto mt-5 mb-5">
-          <button
-            onClick={() => handleSocialLogin(handleGoogleLogin)}
-            className="btn border-[#1ec6b6] hover:bg-[#1ec6b6] hover:text-white text-[#1ec6b6]"
-          >
-            <FcGoogle size={35} />
-            Login with Google
-          </button>
-          <div className="flex justify-center items-center w-full">
-            <div className="border-[1px] h-[1px] w-full border-[#1ec6b6]"></div>
-            <div className="px-1">or</div>
-            <div className="border-[1px] h-[1px] w-full border-[#1ec6b6]"></div>
-          </div>
-          <button
-            onClick={() => handleSocialLogin(handleGithubLogin)}
-            className="btn border-[#1ec6b6] hover:bg-[#1ec6b6] hover:text-white text-[#1ec6b6]"
-          >
-            <IoLogoGithub size={35} />
-            Login with Github
-          </button>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
