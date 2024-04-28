@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 
-const AddTouristSpot = () => {
-  const { user } = useAuth() || {};
-  const [error, setError] = useState("");
-
+const UpdateTouristSpot = () => {
+  const touristSpot = useLoaderData() || {};
+  const { id } = useParams();
+  //   console.log(id);
+  const { user } = useAuth();
+  //   console.log(touristSpot);
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setValue("season", "defaultValue");
+  }, [setValue]);
 
   const onSubmit = (data) => {
     const {
@@ -28,7 +37,7 @@ const AddTouristSpot = () => {
       travel_time,
       total_visitors_per_year,
     } = data;
-    
+
     const touristSpot = {
       email: email,
       userName: user_name,
@@ -44,13 +53,9 @@ const AddTouristSpot = () => {
     };
     // console.log(touristSpot);
 
-    if (user?.providerData[0]?.email !== email) {
-      return setError(`please provide your correct email`);
-    }
-
-    const postData = async () => {
-      const res = await fetch(`http://localhost:5000/addTouristSpot`, {
-        method: "POST",
+    const updateData = async () => {
+      const res = await fetch(`http://localhost:5000/allTouristSpots/${id}`, {
+        method: "PUT",
         headers: {
           "Content-type": "application/json",
         },
@@ -58,23 +63,23 @@ const AddTouristSpot = () => {
       });
       const result = await res.json();
       //   console.log(result);
-      if (result.insertedId) {
-        setError("");
+      if (result.modifiedCount > 0) {
         Swal.fire({
           title: `Well Done ${user?.providerData[0]?.displayName}`,
-          text: "Your Tourist Spot Added SuccessFully!",
+          text: "Your Tourist Spot Updated SuccessFully!",
           icon: "success",
         });
-        reset();
+        navigate("/myList");
       }
     };
-    postData();
+    updateData();
   };
+
   return (
     <div className="mt-5">
       <div className="card shrink-0 md:w-full  mx-0 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
-          ADD <span className="text-[#1ec6b6]">TOURIST_SPOT</span> HERE
+          UPDATE <span className="text-[#1ec6b6]">TOURIST_SPOT</span> HERE
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body py-5">
           <div className="grid md:grid-cols-2 grid-cols-1 gap-4 items-center">
@@ -85,6 +90,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="photo URL"
+                defaultValue={touristSpot?.photoUrl}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("photo", {
                   required: "photo url is required",
@@ -104,6 +110,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="Enter Tourist Spot Name"
+                defaultValue={touristSpot?.touristSpotName}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("tourists_spot_name", {
                   required: "tourists_spot_name is required",
@@ -139,6 +146,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="Enter Country Name"
+                defaultValue={touristSpot?.countryName}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("country_name", {
                   required: "country_name is required",
@@ -171,6 +179,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="Enter Location"
+                defaultValue={touristSpot?.location}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("location", {
                   required: "location is required",
@@ -204,6 +213,7 @@ const AddTouristSpot = () => {
               <input
                 type="number"
                 placeholder="Enter Average_Cost"
+                defaultValue={touristSpot?.averageCost}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("average_cost", {
                   required: "average_cost is required",
@@ -228,8 +238,15 @@ const AddTouristSpot = () => {
                     required: "Season is Required",
                   })}
                 >
-                  <option className="text-lg">summer</option>
-                  <option className="text-lg">winter</option>
+                  <option value="defaultValue">
+                    {touristSpot?.seasonality}
+                  </option>
+                  <option value="summer" className="text-lg">
+                    summer
+                  </option>
+                  <option value="winter" className="text-lg">
+                    winter
+                  </option>
                 </select>
               </label>
             </div>
@@ -241,6 +258,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="Enter Travel Time"
+                defaultValue={touristSpot?.travelTime}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("travel_time", {
                   required: "travel_time is required",
@@ -267,6 +285,7 @@ const AddTouristSpot = () => {
               <input
                 type="number"
                 placeholder="Enter Total_Visitors_PerYear"
+                defaultValue={touristSpot?.totalVisitorsPerYear}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
                 {...register("total_visitors_per_year", {
                   required: "total_visitors_per_year is required",
@@ -288,22 +307,16 @@ const AddTouristSpot = () => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                defaultValue={user?.providerData[0]?.email}
+                defaultValue={user?.email}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
-                {...register("email", {
-                  required: "email is required",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@gmail\.com$/,
-                    message: "example@gmail.com",
-                  },
-                })}
+                {...register("email")}
+                disabled
               />
               {errors?.email && (
                 <span className="text-red-600 font-semibold">
                   {errors.email.message}
                 </span>
               )}
-              {error && <span className="text-red-600 font-bold">{error}</span>}
             </div>
 
             <div className="form-control">
@@ -313,26 +326,9 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 placeholder="Enter Your Name"
-                defaultValue={user?.providerData[0]?.displayName}
+                defaultValue={user?.displayName}
                 className="input input-bordered focus:border-[#1ec6b6] focus:outline-none"
-                {...register("user_name", {
-                  required: "user_name is required",
-                  minLength: {
-                    value: 3,
-                    message:
-                      "tourists_spot_name should be at least 3 character",
-                  },
-                  maxLength: {
-                    value: 30,
-                    message:
-                      "tourists_spot_name should be 20 character maximum",
-                  },
-                  pattern: {
-                    value: /^(?=.*[a-zA-Z]).+$/,
-                    message:
-                      "user_name has one Upper case or one Lower case letter",
-                  },
-                })}
+                disabled
               />
 
               {errors?.user_name && (
@@ -350,6 +346,7 @@ const AddTouristSpot = () => {
             <textarea
               type="text-area"
               placeholder="Enter Short Description"
+              defaultValue={touristSpot?.description}
               className="textarea focus:border-[#1ec6b6] input-bordered focus:outline-none"
               {...register("description", {
                 required: "short_description is required",
@@ -386,4 +383,4 @@ const AddTouristSpot = () => {
   );
 };
 
-export default AddTouristSpot;
+export default UpdateTouristSpot;

@@ -23,7 +23,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/allSpots">All Tourists Spot</NavLink>
+        <NavLink to="/allTouristSpot">All Tourists Spot</NavLink>
       </li>
       <li>
         <NavLink to="/addTouristSpot">Add Tourists Spot</NavLink>
@@ -152,8 +152,8 @@ const Navbar = () => {
           ) : (
             <div
               className="dropdown dropdown-end"
-              onMouseEnter={() => setShow(!show)}
-              onMouseLeave={() => setShow(!show)}
+              onMouseEnter={() => setShow(true)}
+              onMouseLeave={() => setShow(false)}
             >
               <div
                 tabIndex={0}
@@ -174,9 +174,8 @@ const Navbar = () => {
                   className="z-[1] flex flex-col  p-2 shadow bg-base-100 rounded-box absolute right-0 space-y-5"
                 >
                   <li className="w-40">
-                    <Link to="" className="flex justify-between">
-                      Profile
-                      <span className="badge">New</span>
+                    <Link to="" className="flex justify-between text-xs">
+                      {user?.providerData[0]?.email}
                     </Link>
                   </li>
 
