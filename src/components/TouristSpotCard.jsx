@@ -19,7 +19,7 @@ const TouristSpotCard = ({ touristSpot }) => {
           className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
         />
 
-        <div className="flex flex-col justify-between  p-6 space-y-8 border-2 ">
+        <div className="flex flex-col justify-between  p-6 space-y-8 border ">
           <div className="space-y-2 h-[230px]">
             <h2 className="text-3xl font-semibold tracking-wide mb-4">
               {touristSpotName}

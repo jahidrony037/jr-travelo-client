@@ -1,9 +1,12 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import useAuth from "../hooks/useAuth";
 const TouristSpotCardDetails = () => {
   const touristSpotDetails = useLoaderData() || {};
   // console.log(touristSpotDetails);
+  const { themeName } = useAuth();
+  console.log(themeName);
   const navigate = useNavigate();
   const {
     photoUrl,
@@ -76,46 +79,90 @@ const TouristSpotCardDetails = () => {
         </Swiper>
       </div>
       <div data-aos="fade-left" data-aos-duration="1000" className="lg:w-[48%]">
-        <h1 className="text-[#131313] text-[40px]  leading-none playfair font-bold">
+        <h1
+          className={`${
+            themeName === "dark" ? "text-white" : "text-[#131313]"
+          } text-[40px]  leading-none playfair font-bold`}
+        >
           {touristSpotName}
         </h1>
-        <p className="text-[20px] text-[#131313CC] work-sans font-medium mt-4 mb-6">
+        <p
+          className={`text-[20px] ${
+            themeName === "dark" ? "text-whitesmoke" : "text-[#131313]"
+          } work-sans font-medium mt-4 mb-6`}
+        >
           Country Name : {countryName}
         </p>
 
-        <div className="border-[1px] border-solid border-[#13131326] my-6"></div>
+        <div
+          className={`border-[1px] border-solid ${
+            themeName === "dark" ? "border-whitesmoke" : "border-[#13131326]"
+          }  my-6`}
+        ></div>
         <div className="space-y-3">
           <div className="grid grid-cols-12">
-            <p className="col-span-5 text-[16px] text-[#131313B2] work-sans font-normal">
-              Location :
+            <p
+              className={`col-span-5 text-[16px] ${
+                themeName === "dark" ? "text-whitesmoke" : "text-[#131313B2]"
+              } work-sans font-normal`}
+            >
+              Location
             </p>
-            <p className="col-span-7 work-sans text-[#131313] text-[16px] font-semibold">
-              {location}
+            <p
+              className={`col-span-7 work-sans ${
+                themeName === "dark" ? "text-white" : "text-[#131313]"
+              } text-[16px] font-semibold`}
+            >
+              : {location}
             </p>
           </div>
           <div className="grid grid-cols-12">
-            <p className=" col-span-5 text-[16px] text-[#131313B2] work-sans font-normal">
-              Seasonality :
+            <p
+              className={`col-span-5 text-[16px] ${
+                themeName === "dark" ? "text-whitesmoke" : "text-[#131313B2]"
+              } work-sans font-normal`}
+            >
+              Seasonality
             </p>
-            <p className="col-span-7 work-sans text-[#131313] text-[16px] font-semibold">
-              {seasonality}
+            <p
+              className={`col-span-7 work-sans ${
+                themeName === "dark" ? "text-white" : "text-[#131313]"
+              } text-[16px] font-semibold`}
+            >
+              : {seasonality}
             </p>
           </div>
 
           <div className="grid grid-cols-12">
-            <p className=" col-span-5 text-[16px] text-[#131313B2] work-sans font-normal">
-              TotalVisitorsPerYear:
+            <p
+              className={`col-span-5 text-[16px] ${
+                themeName === "dark" ? "text-whitesmoke" : "text-[#131313B2]"
+              } work-sans font-normal`}
+            >
+              TotalVisitorsPerYear
             </p>
-            <p className="col-span-7 work-sans text-[#131313] text-[16px] font-semibold">
-              {totalVisitorsPerYear}
+            <p
+              className={`col-span-7 work-sans ${
+                themeName === "dark" ? "text-white" : "text-[#131313]"
+              } text-[16px] font-semibold`}
+            >
+              : {totalVisitorsPerYear}
             </p>
           </div>
           <div className="grid grid-cols-12">
-            <p className=" col-span-5 text-[16px] text-[#131313B2] work-sans font-normal">
-              Description:
+            <p
+              className={`col-span-5 text-[16px] ${
+                themeName == "dark" ? "text-whitesmoke" : "text-[#131313B2]"
+              } work-sans font-normal`}
+            >
+              Description
             </p>
-            <p className="col-span-7 work-sans text-[#131313] text-[16px] font-semibold">
-              {description}
+            <p
+              className={`col-span-7 work-sans ${
+                themeName === "dark" ? "text-white" : "text-[#131313]"
+              } text-[16px] font-semibold`}
+            >
+              : {description}
             </p>
           </div>
         </div>

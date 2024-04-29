@@ -14,6 +14,7 @@ import { auth } from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [themeName, setThemeName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState(false);
 
@@ -76,6 +77,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     setShow,
     show,
+    setThemeName,
+    themeName,
   };
   return (
     <AuthContext.Provider value={allInfo}>{children}</AuthContext.Provider>
