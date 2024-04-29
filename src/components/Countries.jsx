@@ -22,6 +22,10 @@ const Countries = () => {
       <h2 className="text-center text-4xl font-semibold mb-[50px]">
         Explore Countries
       </h2>
+      <p className="text-center text-lg">
+        Exploring Different types of Tourist places <br /> and you can visit
+        those place which are realy nice to see .
+      </p>
       {countries.length ? (
         <div className="grid md:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
           {countries.map((country) => (

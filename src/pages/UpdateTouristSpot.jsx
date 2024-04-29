@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -81,6 +82,9 @@ const UpdateTouristSpot = () => {
 
   return (
     <div className="mt-5">
+      <Helmet>
+        <title>Update</title>
+      </Helmet>
       <div className="card shrink-0 md:w-full  mx-0 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
           UPDATE <span className="text-[#1ec6b6]">TOURIST_SPOT</span> HERE

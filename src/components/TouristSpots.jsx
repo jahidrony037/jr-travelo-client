@@ -28,6 +28,11 @@ const TouristSpots = () => {
         Explore Tourist Spots
       </h2>
 
+      <p className="text-lg text-center pb-3">
+        The Business Standard brings you a list of some <br />
+        popular places, which are attracting huge tourists
+      </p>
+
       {touristSpots.length ? (
         <div className="grid md:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
           {touristSpots.map((touristSpot) => (

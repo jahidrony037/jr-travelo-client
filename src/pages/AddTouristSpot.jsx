@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
@@ -75,6 +76,9 @@ const AddTouristSpot = () => {
   };
   return (
     <div className="mt-5">
+      <Helmet>
+        <title>AddTouristSpot</title>
+      </Helmet>
       <div className="card shrink-0 md:w-full  mx-0 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
           ADD <span className="text-[#1ec6b6]">TOURIST_SPOT</span> HERE

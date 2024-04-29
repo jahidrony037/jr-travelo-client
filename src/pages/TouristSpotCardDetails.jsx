@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,7 +7,7 @@ const TouristSpotCardDetails = () => {
   const touristSpotDetails = useLoaderData() || {};
   // console.log(touristSpotDetails);
   const { themeName } = useAuth();
-  console.log(themeName);
+  // console.log(themeName);
   const navigate = useNavigate();
   const {
     photoUrl,
@@ -25,6 +26,9 @@ const TouristSpotCardDetails = () => {
         data-aos-duration="1000"
         className="rounded-2xl bg-[#1313130D]  lg:w-[48%]"
       >
+        <Helmet>
+          <title>{touristSpotName} Details</title>
+        </Helmet>
         <Swiper
           pagination={{
             type: "bullets",

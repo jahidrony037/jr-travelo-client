@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
@@ -58,6 +59,9 @@ const MyList = () => {
 
   return (
     <div className="mt-5">
+      <Helmet>
+        <title>MyList</title>
+      </Helmet>
       <h2 className="text-center text-4xl">
         Your Added {touristSpots.length} Tourist Spot
       </h2>
