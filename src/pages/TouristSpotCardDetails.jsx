@@ -3,7 +3,7 @@ import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 const TouristSpotCardDetails = () => {
   const touristSpotDetails = useLoaderData() || {};
-  console.log(touristSpotDetails);
+  // console.log(touristSpotDetails);
   const navigate = useNavigate();
   const {
     photoUrl,

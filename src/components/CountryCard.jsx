@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CountryCard = ({ country }) => {
   const { subCategory, image, short_description } = country;
   return (
-    <Link to={`/subCategories/${subCategory}`}>
+    <Link to={`/countries/${subCategory}`}>
       <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 ">
         <img
           src={image}

@@ -7,7 +7,7 @@ const AllTouristSpot = () => {
 
   return (
     <div>
-      <h2 className="text-center text-4xl">All Tourist Spots</h2>
+      <h2 className="text-center text-4xl mb-[50px]">All Tourist Spots</h2>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
         {allTouristSpot.map((touristSpot) => (
           <TouristSpotCard key={touristSpot?._id} touristSpot={touristSpot} />

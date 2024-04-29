@@ -4,7 +4,7 @@ import TouristSpots from "./../components/TouristSpots";
 
 const Home = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-14">
       <Banner />
       <TouristSpots />
       <Countries />

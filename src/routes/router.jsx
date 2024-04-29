@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CountriesAllSpot from "../components/CountriesAllSpot";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import AddTouristSpot from "../pages/AddTouristSpot";
 import AllTouristSpot from "../pages/AllTouristSpot";
@@ -63,10 +64,26 @@ export const router = createBrowserRouter([
       },
       {
         path: "/update/:id",
-        element: <UpdateTouristSpot />,
+        element: (
+          <ProtectedRoute>
+            <UpdateTouristSpot />
+          </ProtectedRoute>
+        ),
         loader: (params) =>
           fetch(
             `https://jr-travelo-server.vercel.app/allTouristSpots/${params.params.id}`
+          ),
+      },
+      {
+        path: "/countries/:countryName",
+        element: (
+          <ProtectedRoute>
+            <CountriesAllSpot />
+          </ProtectedRoute>
+        ),
+        loader: (params) =>
+          fetch(
+            `https://jr-travelo-server.vercel.app/subCategories/${params.params.countryName}`
           ),
       },
     ],

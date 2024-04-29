@@ -10,7 +10,7 @@ const TouristSpots = () => {
         `https://jr-travelo-server.vercel.app/allTouristSpots`
       );
       let result = await res.json();
-      console.log(result);
+      //   console.log(result);
       if (result.length > 6) {
         result = result.slice(0, 6);
       }
@@ -24,7 +24,7 @@ const TouristSpots = () => {
 
   return (
     <div>
-      <h2 className="text-center text-4xl font-semibold">
+      <h2 className="text-center text-4xl font-semibold mb-[50px]">
         Explore Tourist Spots
       </h2>
 
