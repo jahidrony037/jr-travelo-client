@@ -3,6 +3,7 @@ import CountriesAllSpot from "../components/CountriesAllSpot";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import AddTouristSpot from "../pages/AddTouristSpot";
 import AllTouristSpot from "../pages/AllTouristSpot";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyList from "../pages/MyList";
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
