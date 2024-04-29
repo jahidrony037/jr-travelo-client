@@ -2,6 +2,7 @@ import { BsInstagram } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import logo from "../../public/logo.svg";
 
 const Footer = () => {
@@ -17,6 +18,12 @@ const Footer = () => {
             src={logo}
             alt="logo"
             className="md:w-[100px] md:h-[100px] w-16 h-16 mx-auto md:mx-0"
+            data-tooltip-id="my-tooltip-inline"
+            data-tooltip-content="JR-Travelo"
+          />
+          <Tooltip
+            id="my-tooltip-inline"
+            style={{ backgroundColor: "#1ec6b6" }}
           />
           <p>
             JR TRAVELO ORG.
@@ -77,23 +84,35 @@ const Footer = () => {
               target="_blank"
               href="https://www.facebook.com/"
               className="link link-hover"
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="facebook"
+              data-tooltip-variant="info"
             >
               <FaFacebook size={30} color="#0866ff" />
             </a>
+            <Tooltip id="my-tooltip" />
             <a
               target="_blank"
               href="https://www.instagram.com/"
               className="link link-hover"
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Instagram"
+              data-tooltip-variant="info"
             >
               <BsInstagram size={30} />
             </a>
+            <Tooltip id="my-tooltip" />
             <a
               target="_blank"
               href="https://twitter.com/home"
               className="link link-hover"
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Twitter"
+              data-tooltip-variant="info"
             >
               <RiTwitterXLine size={30} />
             </a>
+            <Tooltip id="my-tooltip" />
           </div>
         </nav>
       </footer>

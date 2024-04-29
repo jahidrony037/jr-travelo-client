@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 import logo from "../../public/logo.svg";
 import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
@@ -150,6 +151,7 @@ const Navbar = () => {
                 }}
                 className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
               />
+
               <svg
                 className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
                 xmlns="http://www.w3.org/2000/svg"
@@ -213,11 +215,19 @@ const Navbar = () => {
                 role="button"
                 className="btn border-[1px] border-[#1ec6b6] hover:bg-[#1ec6b6]  btn-circle avatar"
               >
-                <div className="w-10 rounded-full">
+                <div
+                  data-tooltip-id="profile-image"
+                  data-tooltip-content={`${user?.providerData[0]?.displayName}`}
+                  className="w-10 rounded-full"
+                >
                   <img
                     alt="user-photo"
-                    title={`${user?.providerData[0]?.displayName}`}
                     src={`${user?.providerData[0]?.photoURL}`}
+                  />
+                  <Tooltip
+                    id="profile-image"
+                    className="z-10"
+                    style={{ backgroundColor: "#1ec6b6" }}
                   />
                 </div>
               </div>
