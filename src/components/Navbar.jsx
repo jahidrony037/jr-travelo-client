@@ -44,13 +44,13 @@ const Navbar = () => {
   );
   return (
     <nav>
-      <div className="navbar bg-base-100 sticky top-0 shadow-sm z-10">
+      <div className="navbar bg-base-100 sticky top-0 shadow-sm z-10 pl-0">
         <div className="navbar-start">
           <div className="dropdown">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost lg:hidden pl-0"
+              className="btn btn-ghost lg:hidden pl-0 pr-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,15 +76,15 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="flex items-center btn btn-ghost md:h-[55px] h-[40px] hover:bg-none"
+            className="flex items-center btn btn-ghost md:h-[55px] h-[40px] hover:bg-none pl-0"
           >
             <img
               src={logo}
               className="md:w-12 w-10 md:h-12 h-10 fill-[#1ec6b6]"
               alt="logo"
             />
-            <p className="md:text-lg text-sm">
-              <span className="block text-left text-[#1ec6b6] font-bold md:text-lg">
+            <p className="md:text-lg text-xs">
+              <span className="block text-left text-[#1ec6b6] font-bold md:text-lg text-xs">
                 JR
               </span>{" "}
               TRAVELO
@@ -182,10 +182,10 @@ const Navbar = () => {
             </label>
           </div>
           {!user ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center md:gap-4 gap-1">
               <Link
                 to="/login"
-                className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[#1ec6b6] border-[1px] "
+                className="md:px-5 px-2 md:py-2 py-1 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[#1ec6b6] border-[1px] "
               >
                 <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#1ec6b6]  group-hover:h-full opacity-90 "></span>
                 <span className="relative group-hover:text-white font-bold">
@@ -194,7 +194,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/register"
-                className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[#1ec6b6] border-[1px] "
+                className="md:px-5 px-2 md:py-2 py-1 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[#1ec6b6] border-[1px] "
               >
                 <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#1ec6b6]  group-hover:h-full opacity-90 "></span>
                 <span className="relative group-hover:text-white font-bold">
