@@ -9,7 +9,7 @@ const MyList = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
-        `http://localhost:5000/touristSpots/${user?.email}`
+        `https://jr-travelo-server.vercel.app/touristSpots/${user?.email}`
       );
       const result = await res.json();
       setTouristSpots(result);
@@ -32,9 +32,12 @@ const MyList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const deleteTouristSpot = async () => {
-          const res = await fetch(`http://localhost:5000/touristSpots/${id}`, {
-            method: "DELETE",
-          });
+          const res = await fetch(
+            `https://jr-travelo-server.vercel.app/touristSpots/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const result = await res.json();
           if (result.deletedCount > 0) {
             Swal.fire({

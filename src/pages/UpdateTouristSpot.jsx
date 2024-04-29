@@ -1,15 +1,16 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 
 const UpdateTouristSpot = () => {
   const touristSpot = useLoaderData() || {};
   const { id } = useParams();
-  //   console.log(id);
+  // console.log(id);
   const { user } = useAuth();
-  //   console.log(touristSpot);
+  // console.log(touristSpot);
   const {
     register,
     handleSubmit,
@@ -20,49 +21,52 @@ const UpdateTouristSpot = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setValue("season", "defaultValue");
-  }, [setValue]);
+    setValue("season", `${touristSpot?.seasonality}`);
+    setValue("subCategory", `${touristSpot?.countryName}`);
+  }, [setValue, touristSpot?.seasonality, touristSpot?.countryName]);
 
   const onSubmit = (data) => {
+    // console.log(data);
     const {
-      email,
-      user_name,
       photo,
       tourists_spot_name,
-      country_name,
       location,
       description,
       average_cost,
       season,
+      countryName,
       travel_time,
       total_visitors_per_year,
     } = data;
 
     const touristSpot = {
-      email: email,
-      userName: user_name,
       photoUrl: photo,
       seasonality: season,
       touristSpotName: tourists_spot_name,
-      countryName: country_name,
+      countryName: countryName,
       location: location,
       description: description,
       averageCost: average_cost,
       travelTime: travel_time,
       totalVisitorsPerYear: total_visitors_per_year,
     };
-    // console.log(touristSpot);
 
     const updateData = async () => {
-      const res = await fetch(`http://localhost:5000/allTouristSpots/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(touristSpot),
-      });
+      const res = await fetch(
+        `https://jr-travelo-server.vercel.app/allTouristSpots/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(touristSpot),
+        }
+      );
       const result = await res.json();
-      //   console.log(result);
+      // console.log(result);
+      if (result.modifiedCount === 0) {
+        toast.error("Please Update any fields first");
+      }
       if (result.modifiedCount > 0) {
         Swal.fire({
           title: `Well Done ${user?.providerData[0]?.displayName}`,
@@ -102,6 +106,41 @@ const UpdateTouristSpot = () => {
                 </span>
               )}
             </div>
+            <div className="form-control">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md">Select Country*</span>
+                </div>
+                <select
+                  className="select  select-bordered w-full focus:border-[#1ec6b6] focus:outline-none"
+                  {...register("countryName", {
+                    required: "CountryName is Required",
+                  })}
+                >
+                  <option value={touristSpot?.countryName}>
+                    {touristSpot?.countryName}
+                  </option>
+                  <option value="Bangladesh" className="text-lg">
+                    Bangladesh
+                  </option>
+                  <option value="Thailand" className="text-lg">
+                    Thailand
+                  </option>
+                  <option value="Indonesia" className="text-lg">
+                    Indonesia
+                  </option>
+                  <option value="Malaysia" className="text-lg">
+                    Malaysia
+                  </option>
+                  <option value="Vietnam" className="text-lg">
+                    Vietnam
+                  </option>
+                  <option value="Cambodia" className="text-lg">
+                    Cambodia
+                  </option>
+                </select>
+              </label>
+            </div>
 
             <div className="form-control">
               <label className="label">
@@ -139,7 +178,7 @@ const UpdateTouristSpot = () => {
               )}
             </div>
 
-            <div className="form-control">
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text text-md">Country_name*</span>
               </label>
@@ -170,7 +209,7 @@ const UpdateTouristSpot = () => {
                   {errors.country_name.message}
                 </span>
               )}
-            </div>
+            </div> */}
 
             <div className="form-control">
               <label className="label">
@@ -238,7 +277,10 @@ const UpdateTouristSpot = () => {
                     required: "Season is Required",
                   })}
                 >
-                  <option value="defaultValue">
+                  <option
+                    className="text-lg"
+                    value={`${touristSpot?.seasonality}`}
+                  >
                     {touristSpot?.seasonality}
                   </option>
                   <option value="summer" className="text-lg">
@@ -372,7 +414,7 @@ const UpdateTouristSpot = () => {
             <button className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#1ec6b6] inline-block border-[1px] border-[#1ec6b6]">
               <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#1ec6b6] group-hover:h-full opacity-90"></span>
               <span className="relative group-hover:text-white font-bold">
-                ADD SPOT
+                UPDATE SPOT
               </span>
             </button>
           </div>

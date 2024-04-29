@@ -20,7 +20,7 @@ const AddTouristSpot = () => {
       user_name,
       photo,
       tourists_spot_name,
-      country_name,
+      countryName,
       location,
       description,
       average_cost,
@@ -28,15 +28,15 @@ const AddTouristSpot = () => {
       travel_time,
       total_visitors_per_year,
     } = data;
-    
+
     const touristSpot = {
       email: email,
       userName: user_name,
       photoUrl: photo,
       seasonality: season,
       touristSpotName: tourists_spot_name,
-      countryName: country_name,
       location: location,
+      countryName: countryName,
       description: description,
       averageCost: average_cost,
       travelTime: travel_time,
@@ -49,13 +49,16 @@ const AddTouristSpot = () => {
     }
 
     const postData = async () => {
-      const res = await fetch(`http://localhost:5000/addTouristSpot`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(touristSpot),
-      });
+      const res = await fetch(
+        `https://jr-travelo-server.vercel.app/addTouristSpot`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(touristSpot),
+        }
+      );
       const result = await res.json();
       //   console.log(result);
       if (result.insertedId) {
@@ -96,7 +99,26 @@ const AddTouristSpot = () => {
                 </span>
               )}
             </div>
-
+            <div className="form-control">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md">Select Country*</span>
+                </div>
+                <select
+                  className="select  select-bordered w-full focus:border-[#1ec6b6] focus:outline-none"
+                  {...register("countryName", {
+                    required: "CountryName is Required",
+                  })}
+                >
+                  <option className="text-lg">Bangladesh</option>
+                  <option className="text-lg">Thailand</option>
+                  <option className="text-lg">Indonesia</option>
+                  <option className="text-lg">Malaysia</option>
+                  <option className="text-lg">Vietnam</option>
+                  <option className="text-lg">Cambodia</option>
+                </select>
+              </label>
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-md">Tourists_spot_name*</span>
@@ -132,7 +154,7 @@ const AddTouristSpot = () => {
               )}
             </div>
 
-            <div className="form-control">
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text text-md">Country_name*</span>
               </label>
@@ -162,7 +184,7 @@ const AddTouristSpot = () => {
                   {errors.country_name.message}
                 </span>
               )}
-            </div>
+            </div> */}
 
             <div className="form-control">
               <label className="label">
@@ -342,7 +364,6 @@ const AddTouristSpot = () => {
               )}
             </div>
           </div>
-
           <div className="form-control">
             <label className="label">
               <span className="label-text text-md">Short_Description*</span>

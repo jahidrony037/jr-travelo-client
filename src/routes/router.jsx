@@ -30,11 +30,20 @@ export const router = createBrowserRouter([
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot />,
-        loader: () => fetch("http://localhost:5000/allTouristSpots"),
+        loader: () =>
+          fetch("https://jr-travelo-server.vercel.app/allTouristSpots"),
       },
       {
         path: "/allTouristSpot/:id",
-        element: <TouristSpotCardDetails />,
+        element: (
+          <ProtectedRoute>
+            <TouristSpotCardDetails />
+          </ProtectedRoute>
+        ),
+        loader: (params) =>
+          fetch(
+            `https://jr-travelo-server.vercel.app/allTouristSpots/${params.params.id}`
+          ),
       },
       {
         path: "/addTouristSpot",
@@ -56,7 +65,9 @@ export const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateTouristSpot />,
         loader: (params) =>
-          fetch(`http://localhost:5000/allTouristSpots/${params.params.id}`),
+          fetch(
+            `https://jr-travelo-server.vercel.app/allTouristSpots/${params.params.id}`
+          ),
       },
     ],
   },
