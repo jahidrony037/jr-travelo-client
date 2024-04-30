@@ -12,8 +12,8 @@ const CountriesAllSpot = () => {
       <Helmet>
         <title>{countryName} AllSpots</title>
       </Helmet>
-      <h2 className="text-center font-semibold text-3xl mt-10">
-        All Tourist Spots of {countryName}
+      <h2 className="text-center font-semibold text-3xl  mt-10">
+        Greetings from {countryName}
       </h2>
       {countriesSpot.length ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
