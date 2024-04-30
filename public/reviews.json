@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Susan Barkley",
+    "image": "https://i.ibb.co/ZWdFWbd/review1.jpg",
+    "description": "This website is fantastic! It has a user-friendly interface and provides comprehensive information about various tourist destinations. I especially love the detailed guides and travel tips.",
+    "location": "Bangladesh"
+  },
+  {
+    "id": 2,
+    "name": "Jim Lorent",
+    "image": "https://i.ibb.co/fQ0vVf9/reviiew2.jpg",
+    "description": "I've used this website to plan several trips, and it's been quite helpful. The photos are stunning, and the booking process is smooth. However, I wish there were more off-the-beaten-path recommendations.",
+    "location": "Indonesia"
+  },
+  {
+    "id": 3,
+    "name": "Mika Gilmore",
+    "image": "https://i.ibb.co/wgRm0BV/review3.jpg",
+    "description": "Decent website, but could use some improvements. The search function is not very intuitive, and sometimes the information feels outdated.",
+    "location": "Vietnam"
+  },
+  {
+    "id": 4,
+    "name": "Barkley Rawat",
+    "image": "https://i.ibb.co/vBTCjQ5/review4.jpg",
+    "description": "I absolutely love this website! It has inspired me to explore new destinations and try out different activities. The blog section is especially informative and has motivated me to embark on some unforgettable adventures.",
+    "location": "Cambodia"
+  }
+]
