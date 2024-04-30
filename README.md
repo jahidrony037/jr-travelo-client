@@ -1,8 +1,31 @@
-# React + Vite
+# JR TRAVELO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Site URL: ['https://jr-travelo.web.app/']
 
-Currently, two official plugins are available:
+## Features & Characteristics
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This is Tourism Site
+- It has authentication system like login and registration
+- It has social login system
+- User can create an account using email and password
+- It has Home,About,Contact pages and many routes also
+- User can add any tourist-spot after login
+- User can view any tourist-spot details after login
+- User can update and delete any tourist-spot
+- User can see the reviews and travel essential items
+- User can view the countries and countries tourist spot and view by sort
+- Anyone can contact us through our contact page
+- This site also have a navbar and footer
+
+## Packages
+
+we use many yarn/npm packages,mention bellow some of them
+
+- [AOS-Packages] - using for animation in site
+- [React-Hook-Form] -uses for give user input from user and it's validation
+- [React-Swiper-Slider] - using for making a banner/slider
+- [React-Router] - using for routing
+- [React-Tooltip] - using for tool tips msg
+- [React-TypeWriter] - using for dynamic text in ui
+- [TailwindCSS] - using for styles
+- [Firebase] - using for authentication
