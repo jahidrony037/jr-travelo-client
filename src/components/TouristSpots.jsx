@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import Loader from "./Loader";
 import TouristSpotCard from "./TouristSpotCard";
 
@@ -24,8 +25,25 @@ const TouristSpots = () => {
 
   return (
     <div>
-      <h2 className="text-center text-4xl font-semibold mb-[50px]">
-        Explore Tourist Spots
+      <h2 className="text-center md:text-4xl text-2xl font-semibold mb-[30px]">
+        WellCome Our Site
+        <br />
+        <span className="mt-[4px]">
+          You Can{" "}
+          <span style={{ color: "#1ec6b6", fontWeight: "semibold" }}>
+            <Typewriter
+              words={["CREATE", "EXPLORE", "DELETE", "UPDATE"]}
+              loop={true}
+              cursor
+              cursorStyle="_"
+              cursorBlinking={true}
+              typeSpeed={70}
+              deleteSpeed={30}
+              delaySpeed={1000}
+            />
+          </span>{" "}
+          Tourist Spot
+        </span>
       </h2>
 
       <p className="text-lg text-center pb-3">
