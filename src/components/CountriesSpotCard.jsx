@@ -25,7 +25,7 @@ const CountriesSpotCard = ({ countrySpot }) => {
         <div className="flex flex-col justify-between  p-6 space-y-8 border-2 ">
           <div className="space-y-">
             <h2 className="text-3xl font-semibold tracking-wide mb-4">
-              {touristSpotName}
+              {location}
             </h2>
             <div className="space-y-3 mt-4  h-[200px]">
               <p className="list-disc">
@@ -37,8 +37,9 @@ const CountriesSpotCard = ({ countrySpot }) => {
                 {averageCost} Taka
               </p>
 
-              <p className="list-disc">
-                <span className="font-semibold">Location: </span> {location}
+              <p className="list-disc font-bold">
+                <span className="font-bold">Tourist Spot: </span>
+                {touristSpotName}
               </p>
               <p className="list-disc">
                 <span className="font-semibold">Seasonality: </span>

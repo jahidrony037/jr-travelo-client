@@ -34,7 +34,7 @@ const TouristSpots = () => {
       </p>
 
       {touristSpots.length ? (
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
           {touristSpots.map((touristSpot) => (
             <TouristSpotCard key={touristSpot._id} touristSpot={touristSpot} />
           ))}

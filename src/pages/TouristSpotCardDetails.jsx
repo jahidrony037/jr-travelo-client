@@ -20,7 +20,7 @@ const TouristSpotCardDetails = () => {
   } = touristSpotDetails;
 
   return (
-    <div className="my-12 flex flex-col md:flex-row gap-12 lg:justify-between ">
+    <div className="my-12 flex flex-col lg:flex-row gap-12 lg:justify-between ">
       <div
         data-aos="fade-right"
         data-aos-duration="1000"

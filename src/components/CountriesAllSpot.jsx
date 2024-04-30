@@ -16,7 +16,7 @@ const CountriesAllSpot = () => {
         All Tourist Spots of {countryName}
       </h2>
       {countriesSpot.length ? (
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8  justify-items-center  mt-5">
           {countriesSpot.map((countrySpot) => (
             <CountriesSpotCard
               key={countrySpot._id}
