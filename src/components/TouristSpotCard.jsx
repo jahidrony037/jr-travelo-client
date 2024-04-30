@@ -25,9 +25,9 @@ const TouristSpotCard = ({ touristSpot }) => {
               {touristSpotName}
             </h2>
             <ul className="space-y-3 mt-4 ml-4">
-              <li className="list-disc">Average Cost : {averageCost}</li>
+              <li className="list-disc">Average Cost : {averageCost} TK</li>
               <li className="list-disc">
-                Total Visitor Per Year: {totalVisitorsPerYear}
+                Total Visitor Per Year: {totalVisitorsPerYear} People
               </li>
               <li className="list-disc">Travel Time : {travelTime}</li>
               <li className="list-disc">Seasonality : {seasonality}</li>
