@@ -19,10 +19,18 @@ const Countries = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-center text-4xl font-semibold mb-[50px]">
+      <h2
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        className="text-center text-4xl font-semibold mb-[50px]"
+      >
         Explore Countries
       </h2>
-      <p className="text-center text-lg">
+      <p
+        data-aos="fade-up"
+        data-aos-duration="1600"
+        className="text-center text-lg"
+      >
         Exploring Different types of Tourist places <br /> and you can visit
         those place which are realy nice to see .
       </p>

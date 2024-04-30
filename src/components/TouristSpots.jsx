@@ -25,7 +25,11 @@ const TouristSpots = () => {
 
   return (
     <div>
-      <h2 className="text-center md:text-4xl text-2xl font-semibold mb-[30px]">
+      <h2
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="text-center md:text-4xl text-2xl font-semibold mb-[30px]"
+      >
         WellCome Our Site
         <br />
         <span className="mt-[4px]">
@@ -46,7 +50,11 @@ const TouristSpots = () => {
         </span>
       </h2>
 
-      <p className="text-lg text-center pb-3">
+      <p
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        className="text-lg text-center pb-3"
+      >
         The Business Standard brings you a list of some <br />
         popular places, which are attracting huge tourists
       </p>

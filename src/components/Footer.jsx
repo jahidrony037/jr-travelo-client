@@ -7,12 +7,8 @@ import logo from "../../public/logo.svg";
 
 const Footer = () => {
   return (
-    <div>
-      <footer
-        data-aos="zoom-in-up"
-        data-aos-duration="2000"
-        className="footer p-10 bg-base-200 text-base-content z-10"
-      >
+    <div data-aos="zoom-in-up" data-aos-duration="2000">
+      <footer className="footer p-10 bg-base-200 text-base-content z-10 ">
         <aside className="mx-auto">
           <img
             src={logo}

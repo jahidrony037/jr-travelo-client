@@ -3,12 +3,18 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 const TravelItems = () => {
   return (
     <div>
-      <h1 className="mt-[100px] lg:text-5xl md:text-4xl text-3xl font-extrabold text-center leading-relaxed">
+      <h1
+        data-aos="fade-up"
+        data-aos-duration="1600"
+        className="mt-[100px] lg:text-5xl md:text-4xl text-3xl font-extrabold text-center leading-relaxed"
+      >
         TRAVEL ESSENTIALS{" "}
         <span className="hover:bg-[#a2e3dd] px-2 hover:text-white">ITEMS</span>
       </h1>
       <div className="mt-[100px] grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6">
         <a
+          data-aos="flip-left"
+          data-aos-duration="1800"
           target="_blank"
           href="https://wanderland.qodeinteractive.com/product-list/cart/"
         >
@@ -34,6 +40,8 @@ const TravelItems = () => {
           </div>
         </a>
         <a
+          data-aos="flip-left"
+          data-aos-duration="1800"
           target="_blank"
           href="https://wanderland.qodeinteractive.com/product/camera-tripod-2/"
         >
@@ -58,6 +66,8 @@ const TravelItems = () => {
           </div>
         </a>
         <a
+          data-aos="flip-left"
+          data-aos-duration="1800"
           target="_blank"
           href="https://wanderland.qodeinteractive.com/product/raincoat-2/"
         >
@@ -83,6 +93,8 @@ const TravelItems = () => {
           </div>
         </a>
         <a
+          data-aos="flip-left"
+          data-aos-duration="1800"
           target="_blank"
           href="https://wanderland.qodeinteractive.com/product/dslr-camera-2/"
         >
@@ -108,6 +120,8 @@ const TravelItems = () => {
           </div>
         </a>
         <a
+          data-aos="flip-left"
+          data-aos-duration="1800"
           target="_blank"
           href="https://wanderland.qodeinteractive.com/product/watter-bottle-2/"
         >

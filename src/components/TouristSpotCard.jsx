@@ -11,7 +11,7 @@ const TouristSpotCard = ({ touristSpot }) => {
     seasonality,
   } = touristSpot;
   return (
-    <div>
+    <div data-aos="flip-left" data-aos-duration="1500">
       <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 ">
         <img
           src={photoUrl}

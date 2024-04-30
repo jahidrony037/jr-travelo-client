@@ -80,10 +80,19 @@ const AddTouristSpot = () => {
         <title>AddTouristSpot</title>
       </Helmet>
       <div className="card shrink-0 md:w-full  mx-0 shadow-2xl bg-base-100">
-        <h2 className="text-3xl text-center pt-6">
+        <h2
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          className="text-3xl text-center pt-6"
+        >
           ADD <span className="text-[#1ec6b6]">TOURIST_SPOT</span> HERE
         </h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="card-body py-5">
+        <form
+          data-aos="zoom-in"
+          data-aos-duration="1800"
+          onSubmit={handleSubmit(onSubmit)}
+          className="card-body py-5"
+        >
           <div className="grid md:grid-cols-2 grid-cols-1 gap-4 items-center">
             <div className="form-control">
               <label className="label">
