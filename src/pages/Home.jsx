@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banner";
 import Countries from "../components/Countries";
+import TravelItems from "../components/TravelItems";
 import TouristSpots from "./../components/TouristSpots";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner />
       <TouristSpots />
       <Countries />
+      <TravelItems />
     </div>
   );
 };
