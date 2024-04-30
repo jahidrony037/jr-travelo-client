@@ -29,27 +29,15 @@ const Footer = () => {
         </aside>
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a
-            target="_blank"
-            href="https://propertyinspect.com/blog/what-is-multifamily-housing-and-benefits/"
-            className="link link-hover"
-          >
+          <Link to="#countries" className="link link-hover">
             Countries Tourist Spots
-          </a>
-          <a
-            target="_blank"
-            href="https://www.booking.com/hotel/th/beach-bungalow-at-lanta-resort.html"
-            className="link link-hover"
-          >
+          </Link>
+          <Link to="/addTouristSpot" className="link link-hover">
             Add Tourist Spots
-          </a>
-          <a
-            target="_blank"
-            href="https://zums.edu.bd/student-housing/"
-            className="link link-hover"
-          >
+          </Link>
+          <Link to="/myList" className="link link-hover">
             User Added List
-          </a>
+          </Link>
           <a
             target="_blank"
             href="https://www.vacasa.com/"
@@ -58,12 +46,19 @@ const Footer = () => {
             See the Details Every Spots
           </a>
         </nav>
+        <div>
+          <h6 className="footer-title">Office Address</h6>
+          <p>
+            Office Address Level-4, 34,
+            <br /> Awal Centre, Banani, Dhaka
+          </p>
+        </div>
         <nav>
           <h6 className="footer-title">Company</h6>
           <Link to="/about" className="link link-hover">
             About us
           </Link>
-          <Link to="/contact-us" className="link link-hover">
+          <Link to="/contact" className="link link-hover">
             Contact
           </Link>
           <Link to="/login" className="link link-hover">

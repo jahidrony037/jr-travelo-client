@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import CountriesAllSpot from "../components/CountriesAllSpot";
 import MainLayout from "../layouts/MainLayout/MainLayout";
+import About from "../pages/About";
 import AddTouristSpot from "../pages/AddTouristSpot";
 import AllTouristSpot from "../pages/AllTouristSpot";
+import Contact from "../pages/Contact";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -87,6 +89,18 @@ export const router = createBrowserRouter([
           fetch(
             `https://jr-travelo-server.vercel.app/subCategories/${params.params.countryName}`
           ),
+      },
+      {
+        path: "/about",
+        element: (
+          <ProtectedRoute>
+            <About />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

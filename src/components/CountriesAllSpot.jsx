@@ -8,7 +8,7 @@ const CountriesAllSpot = () => {
   const { countryName } = useParams();
   //   console.log(countriesSpot);
   return (
-    <div>
+    <div id="countries">
       <Helmet>
         <title>{countryName} AllSpots</title>
       </Helmet>
