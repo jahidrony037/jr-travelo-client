@@ -2,6 +2,10 @@
 
 Live Site URL: ['https://jr-travelo.web.app/']
 
+## Selected Category
+
+- **Southeast Asia**
+
 ## Features & Characteristics
 
 - This is Tourism Site
