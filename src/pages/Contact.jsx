@@ -10,7 +10,7 @@ const Contact = () => {
       <Helmet>
         <title>contact</title>
       </Helmet>
-      <div className="bg-[url('https://cff2.earth.com/uploads/2016/08/31072637/hiking-woman_1big_stock.jpg')] bg-no-repeat bg-center bg-cover h-[570px] md:h-[700px] grid grid-cols-12 pl-4">
+      <div className="bg-[url('https://cff2.earth.com/uploads/2016/08/31072637/hiking-woman_1big_stock.jpg')] bg-no-repeat bg-center bg-cover h-[570px] md:h-[700px] grid grid-cols-12 md:pl-4">
         <div className="md:col-span-5 col-span-12 space-y-8">
           <h2 className="lg:text-4xl text-2xl font-medium pb-2">
             Get your Tourist Spot
