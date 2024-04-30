@@ -42,7 +42,7 @@ const Banner = () => {
           <img
             src="https://i.ibb.co/rQTY97Z/184319i8-F63-B0720674-D09-A-v-v2.jpg"
             alt="image"
-            className="w-full lg:h-[600px] object-cover"
+            className="w-full lg:h-[600px] md:h-[500px] h-[250px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -64,7 +64,7 @@ const Banner = () => {
           <img
             src="https://i.ibb.co/c2D6zb2/popular-bali-indonesia-temple-tourist-spot-xrfg2u77kvpyb1e5.jpg"
             alt="image"
-            className="w-full lg:h-[600px] object-cover"
+            className="w-full lg:h-[600px] md:h-[500px] h-[250px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -88,7 +88,7 @@ const Banner = () => {
           <img
             src="https://i.ibb.co/chZ4NRy/wat-arun-in-bangkok.jpg"
             alt="image"
-            className="w-full lg:h-[600px] object-cover"
+            className="w-full lg:h-[600px] md:h-[500px] h-[250px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -105,15 +105,13 @@ const Banner = () => {
               Peninsula and the island of Borneo. It's known for its beaches,
               rainforests and mix of Malay, Chinese, Indian and European
               cultural influences. The capital, Kuala Lumpur, is home to
-              colonial buildings, busy shopping districts such as Bukit Bintang
-              and skyscrapers such as the iconic, 451m-tall Petronas Twin
-              Towers.
+              colonial buildings.
             </p>
           </div>
           <img
             src="https://i.ibb.co/2djxv6n/Getty-RF-144552832.jpg"
             alt="image"
-            className="w-full lg:h-[600px] object-cover"
+            className="w-full lg:h-[600px] md:h-[500px] h-[250px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -129,15 +127,14 @@ const Banner = () => {
               Vietnam is a Southeast Asian country known for its beaches,
               rivers, Buddhist pagodas and bustling cities. Hanoi, the capital,
               pays homage to the nation’s iconic Communist-era leader, Ho Chi
-              Minh, via a huge marble mausoleum. Ho Chi Minh City (formerly
-              Saigon) has French colonial landmarks, plus Vietnamese War history
-              museums and the Củ Chi tunnels, used by Viet Cong soldiers.
+              Minh, via a huge marble mausoleum. Ho Chi Minh City has French
+              colonial landmarks.
             </p>
           </div>
           <img
             src="https://youtravel.me/upload/tours/31546/media/e4c/ugwzbzm1d0dvdjovz2482m1fstht9rvj.jpg"
             alt="image"
-            className="w-full lg:h-[600px] object-cover"
+            className="w-full lg:h-[600px] md:h-[500px] h-[250px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -153,16 +150,13 @@ const Banner = () => {
               Cambodia is a Southeast Asian nation whose landscape spans
               low-lying plains, the Mekong Delta, mountains and Gulf of Thailand
               coastline. Phnom Penh, its capital, is home to the art deco
-              Central Market, glittering Royal Palace and the National Museum's
-              historical and archaeological exhibits. In the country's northwest
-              are the ruins of Angkor Wat, a massive stone temple complex built
-              during the Khmer Empire.
+              Central Market, glittering Royal Palace and the National Museum's.
             </p>
           </div>
           <img
             src="https://i.ibb.co/rmFrxCY/khmer-visit-blogspot-the-royal-palace-7.jpg"
             alt="image"
-            className="w-full lg:h-[600px] object-cover"
+            className="w-full lg:h-[600px] md:h-[500px] h-[250px] object-cover"
           />
         </SwiperSlide>
       </Swiper>
