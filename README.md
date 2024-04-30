@@ -9,6 +9,7 @@ Live Site URL: ['https://jr-travelo.web.app/']
 - It has social login system
 - User can create an account using email and password
 - It has Home,About,Contact pages and many routes also
+- It has two theme dark and light theme
 - User can add any tourist-spot after login
 - User can view any tourist-spot details after login
 - User can update and delete any tourist-spot
