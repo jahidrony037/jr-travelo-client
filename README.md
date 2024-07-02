@@ -34,3 +34,30 @@ we use many yarn/npm packages,mention bellow some of them
 - [React-TypeWriter] - using for dynamic text in ui
 - [TailwindCSS] - using for styles
 - [Firebase] - using for authentication
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone git@github.com:jahidrony037/jr-travelo-client.git
+```
+
+Go to the project directory
+
+```bash
+  cd jr-travelo-client
+```
+
+Install dependencies
+
+```bash
+  yarn
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
